@@ -300,6 +300,11 @@ header
 .background-header .main-nav .nav li a {
   color: #fff;
 }
+.logo-main{
+  height: 50%;
+}
+
+
 
 .background-header .main-nav .nav li:hover a {
   color: #4da6e7;
