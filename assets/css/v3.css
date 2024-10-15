@@ -2182,3 +2182,74 @@ responsive
     padding: 30px;
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* General section styling */
+#services {
+  position: relative;
+  padding: 60px 0; /* Adjust the padding if necessary */
+  overflow: hidden; /* Prevent content overflow */
+}
+
+/* Preventing any unexpected height expansion */
+.naccs .grid {
+  position: relative;
+  max-height: 100vh; /* Prevent height from growing beyond the viewport */
+  overflow-y: auto; /* Enable scrolling if content exceeds height */
+}
+
+/* Menu layout styling */
+.naccs .menu {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+
+/* Menu item */
+.naccs .menu .thumb {
+  cursor: pointer;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Ensuring list items don't expand unexpectedly */
+ul.nacc {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.nacc li {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+ul.nacc li .thumb {
+  padding: 20px;
+}
+
+ul.nacc li img {
+  width: 100%; /* Ensure images fit within their containers */
+  height: auto;
+}
+
+/* Clear any floating or flex elements properly */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
