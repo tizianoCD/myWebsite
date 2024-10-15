@@ -1819,52 +1819,6 @@ contact
 }
 
 
-.full-width-form {
-  width: 100%; /* Make the form take up 100% of the space */
-}
-
-.full-width-form label {
-  display: block;
-  margin-bottom: 5px; /* Reduce space below labels */
-}
-
-.full-width-form input[type="text"],
-.full-width-form input[type="email"],
-.full-width-form textarea {
-  width: 100%; /* Make input fields and textarea take 100% width */
-  padding: 10px; /* Add padding for a better look */
-  margin-bottom: 10px; /* Reduce space between elements */
-  box-sizing: border-box; /* Ensure padding is included in width */
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-.full-width-form textarea {
-  resize: none; /* Disable resizing */
-  height: 100px; /* Set a fixed height for the textarea */
-}
-
-.full-width-form input[type="submit"] {
-  background-color: #007bff;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.full-width-form input[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
-/* Optional: Adjust the spacing between form elements for mobile screens */
-@media (max-width: 768px) {
-  .full-width-form input,
-  .full-width-form textarea {
-    margin-bottom: 8px; /* Further reduce spacing for small screens */
-  }
-}
-
 
 
 
@@ -1930,7 +1884,7 @@ form#contact #map iframe {
 }
 
 .fill-form {
-  padding: 0px 60px 80px 30px;
+  padding: 80px 60px 80px 30px;
 }
 
 .fill-form .info-post {
@@ -2217,5 +2171,75 @@ responsive
   }
   form#contact {
     padding: 30px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Ensure form takes full width */
+.full-width-form {
+  width: 100%; /* Full width inside the container */
+  max-width: 100%; /* Prevent it from exceeding parent width */
+}
+
+/* Styling the input fields and textarea to take 100% width and reduce margins */
+.full-width-form input[type="text"],
+.full-width-form input[type="email"],
+.full-width-form input[type="submit"],
+.full-width-form textarea {
+  width: 100%; /* Take 100% width of parent container */
+  padding: 10px; /* Padding for a better look */
+  margin-bottom: 10px; /* Reduce space between form fields */
+  border: 1px solid #ccc; /* Standard border */
+  border-radius: 4px; /* Rounded corners */
+  box-sizing: border-box; /* Ensures padding is included within the width */
+}
+
+/* Disable textarea resizing and set its default height */
+.full-width-form textarea {
+  height: 120px; /* Set a height for the textarea */
+  resize: none; /* Disable manual resizing */
+}
+
+/* Styling for the submit button */
+.full-width-form input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 4px;
+}
+
+/* Submit button hover effect */
+.full-width-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Additional padding and margins for form labels */
+.full-width-form label {
+  display: block;
+  margin-bottom: 5px; /* Adjust margin between label and field */
+  font-weight: bold; /* Optional: make labels bold */
+}
+
+/* Optional: Adjust spacing for mobile screens */
+@media (max-width: 768px) {
+  .full-width-form input[type="text"],
+  .full-width-form input[type="email"],
+  .full-width-form textarea,
+  .full-width-form input[type="submit"] {
+    margin-bottom: 8px; /* Reduce space for smaller screens */
   }
 }
