@@ -1296,7 +1296,7 @@ Services Style
 .services .naccs .menu div .thumb {
   display: inline-block;
   width: 100%;
-  padding: 30px 0px;
+  padding: 20px 0px;
   background-color: #fff;
 }
 
@@ -1331,7 +1331,7 @@ Services Style
   box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
   background-color: #fff;
   border-radius: 15px;
-  padding: 80px 120px 50px 120px;
+  padding: 20px 20px 20px 60px;
 }
 
 .services ul.nacc li {
