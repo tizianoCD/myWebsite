@@ -1832,7 +1832,7 @@ contact
 
 .contact-us .section-heading {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 10px;
 }
 
 
@@ -1849,10 +1849,10 @@ form#contact:before {
 }
 
 .contact-dec img {
-  max-width: 224px;
+  max-width: 100px;
   position: absolute;
-  right: 25px;
-  top: -242px;
+  right: 250px;
+  top: -120px;
 }
 
 form#contact:after {
