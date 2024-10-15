@@ -414,11 +414,19 @@
                     </div>
                     <div class="col-lg-6">
                      
-                      <form action="https://formsubmit.co/info@salesnext.tech" method="POST">
-                        <input type="text" name="name" required>
-                        <input type="email" name="email" required>
-                        <button type="submit">Send</button>
-                   </form>
+                      <form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/1rWZwFQjak2D0cHrIjdo8ttOJFc2T_jquyOjRDU5vSLE/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+                        Name :<br>
+                        <input type="text" name="entry.2005620554" id="entry.2005620554"><br>
+                        Email :<br>
+                        <input type="text" name="entry.1045781291" id="entry.1045781291">
+                        Company :<br>
+                        <input type="text" name="entry.1065046570" id="entry.1065046570">
+                        Description :<br>
+                        <input type="text" name="entry.839337160" id="entry.839337160">
+                        <input type="submit" value="Submit">
+                      </form>
+                      
+                      <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
                    
                    
                     </div>
@@ -455,5 +463,16 @@
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/custom.js"></script>
+
+  <script src="assets/js/jquery.min.js"></script>
+<script type="text/javascript">var submitted=false;</script>
+<script type="text/javascript">
+$('#gform').on('submit', function(e) {
+  $('#gform *').fadeOut(2000);
+  $('#gform').prepend('Your submission has been processed...');
+  });
+</script>
+
+
 </body>
 </html>
