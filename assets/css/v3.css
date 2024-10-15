@@ -1839,6 +1839,11 @@ contact
   margin-bottom: 10px;
 }
 
+#contact-form input {
+  position: relative;
+  z-index: 1;
+}
+
 
 form#contact:before {
   background-image: url(../images/contact-top-right-v3.png);
