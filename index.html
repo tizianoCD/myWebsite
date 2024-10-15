@@ -24,16 +24,34 @@
     <link rel="stylesheet" href="assets/css/owl.css">
 
 
-    <script type="text/javascript"
-    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-</script>
-<script type="text/javascript">
-(function(){
-  emailjs.init({
-    publicKey: "KAfA-1eqc2SFs2m3Q",
-  });
-})();
-</script>
+    <script type="text/javascript">
+      // Initialize EmailJS with your public key
+      (function(){
+          emailjs.init("KAfA-1eqc2SFs2m3Q"); // Replace with your EmailJS public key
+      })();
+  
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+          event.preventDefault(); // Prevent the default form submission
+  
+          const templateParams = {
+              name: document.getElementById('name').value,
+              email: document.getElementById('email').value,
+              message: document.getElementById('message').value,
+          };
+  
+          emailjs.send('service_cysqmp7', 'd92g0dv', templateParams)
+              .then(function(response) {
+                  console.log('SUCCESS!', response.status, response.text);
+                  document.getElementById('response-message').innerText = "Email sent successfully!";
+                  document.getElementById('contact-form').reset(); // Clear the form
+              }, function(error) {
+                  console.log('FAILED...', error);
+                  document.getElementById('response-message').innerText = "Failed to send email. Please try again.";
+              });
+      });
+  </script>
+
+  
 
   </head>
 
