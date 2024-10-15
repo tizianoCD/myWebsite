@@ -413,47 +413,20 @@
                       </div>
                     </div>
                     <div class="col-lg-6">
-                      <form id="contact-form" action="#" method="post"> <!-- Set action and method attributes -->
-                        <div class="col-lg-6">
-                            <fieldset>
-                                <input type="text" name="name" id="name" placeholder="Name" autocomplete="on" required>
-                            </fieldset>
-                            <fieldset>
-                                <input type="email" name="email" id="email" placeholder="Your Email" required>
-                            </fieldset>
-                            <fieldset>
-                                <input type="text" name="subject" id="subject" placeholder="Subject" autocomplete="on" required>
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-6">
-                            <fieldset>
-                                <textarea name="message" class="form-control" id="message" placeholder="Message" required></textarea>  
-                            </fieldset>
-                        </div>
-                        <div class="col-lg-12">
-                            <fieldset>
-                                <button type="submit" id="form-submit" class="main-button">Send Message Now</button>
-                            </fieldset>
-                        </div>
-                    </form>                    
-                
-                    <script type="text/javascript">
-                      (function(){
-                          emailjs.init("KAfA-1eqc2SFs2m3Q"); // Public key which is the User Id
-                      })();
-                  
-                      document.getElementById('contact-form').addEventListener('submit', function(event) {
-                          event.preventDefault(); // Prevent default form submission
-                          emailjs.sendForm('service_cysqmp7', 'd92g0dv', this) // Make sure to use the correct template ID
-                              .then(function(response) {
-                                  console.log('SUCCESS!', response.status, response.text);
-                                  alert('Message sent successfully!'); // Notify user of success
-                              }, function(error) {
-                                  console.log('FAILED...', error);
-                                  alert('Message failed to send, please try again.'); // Notify user of failure
-                              });
-                      });
-                  </script>                  
+                     
+                      <form action="https://formspree.io/f/xvgoobob" method="POST">
+                              <label>
+                                Your email:
+                                <input type="email" name="email">
+                              </label>
+                              <label>
+                                Your message:
+                                <textarea name="message"></textarea>
+                              </label>
+                              <!-- your other form fields go here -->
+                              <button type="submit">Send</button>
+                            </form>
+                           
                                  
                     </div>
                   </div>
