@@ -413,7 +413,7 @@
                       </div>
                     </div>
                     <div class="col-lg-6">
-                      <form action="https://formspree.io/f/xvgoobob" method="POST">
+                      <form id="contact-form">
                         <div class="col-lg-6">
                           <fieldset>
                             <input type="text" name="name" id="name" placeholder="Name" autocomplete="on" required>
@@ -422,7 +422,7 @@
                             <input type="email" name="email" id="email" placeholder="Your Email" required>
                           </fieldset>
                           <fieldset>
-                            <input type="text" name="subject" id="subject" placeholder="Subject" autocomplete="on">
+                            <input type="text" name="subject" id="subject" placeholder="Subject" autocomplete="on" required>
                           </fieldset>
                         </div>
                         <div class="col-lg-6">
@@ -435,7 +435,25 @@
                             <button type="submit" id="form-submit" class="main-button">Send Message Now</button>
                           </fieldset>
                         </div>
-                      </form>                      
+                    </form>
+                
+                    <script type="text/javascript">
+                      // Add event listener to the form
+                      document.getElementById('contact-form').addEventListener('submit', function(event) {
+                        event.preventDefault(); // Prevent default form submission
+                
+                        // Send email using EmailJS
+                        emailjs.sendForm('service_cysqmp7', 'template_id', this) // Replace 'template_id' with your EmailJS template ID
+                          .then(function(response) {
+                            console.log('SUCCESS!', response.status, response.text);
+                            alert('Message sent successfully!'); // Notify user of success
+                          }, function(error) {
+                            console.log('FAILED...', error);
+                            alert('Message failed to send, please try again.'); // Notify user of failure
+                          });
+                      });
+                    </script>
+                                 
                     </div>
                   </div>
                 </div>
@@ -470,6 +488,11 @@
   <script src="assets/js/animation.js"></script>
   <script src="assets/js/imagesloaded.js"></script>
   <script src="assets/js/custom.js"></script>
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script type="text/javascript">
+  (function(){
+    emailjs.init("KAfA-1eqc2SFs2m3Q"); // Public key which is the User Id
+  })();
 
 </body>
 </html>
