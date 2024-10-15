@@ -1826,6 +1826,10 @@ contact
   padding-top: 130px;
 }
 
+.contact-tiles {
+  margin-top: -80px;
+}
+
 .contact-us .section-heading .line-dec {
   margin: 0 auto;
 }
