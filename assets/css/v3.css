@@ -2183,22 +2183,9 @@ responsive
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .progress-line {
-  width: 100px; /* Adjust width as necessary */
-  height: 3px; /* Height of the line */
-  background-color: #4da6e7; /* Color of the line */
-  margin: 10px auto 0; /* Centers the line and adds spacing */
+  width: 100px;
+  height: 3px;
+  background-color: #4da6e7;
+  margin: 10px auto 0;
 }
