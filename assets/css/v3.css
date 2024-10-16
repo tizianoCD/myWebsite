@@ -1373,7 +1373,7 @@ Services Style
 }
 
 .services .left-text p {
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
 }
 
 .nacc .ticks-list span {
@@ -1893,7 +1893,7 @@ form#contact #map iframe {
 }
 
 .fill-form {
-  padding: 80px 60px 80px 30px;
+  padding: 10px 60px 80px 30px;
 }
 
 .fill-form .info-post {
