@@ -1836,7 +1836,7 @@ contact
 }
 
 .contact-tiles .col-lg-4 {
-  max-width: 220px; /* Make the tiles smaller */
+  width: 220px;
 }
 
 .contact-tiles .info-post {
