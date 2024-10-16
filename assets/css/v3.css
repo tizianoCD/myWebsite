@@ -194,7 +194,7 @@ body {
   font-size: 35px;
   font-weight: 700;
   text-transform: capitalize;
-  margin-bottom: 25px;
+  margin-bottom: 10px;
 }
 
 .section-heading h4 em {
@@ -1826,9 +1826,53 @@ contact
   padding-top: 130px;
 }
 
+
+
 .contact-tiles {
-  margin-top: -80px;
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Adjust the gap between the tiles */
+  padding: 20px; /* Add padding around the row if needed */
 }
+
+.contact-tiles .col-lg-4 {
+  max-width: 300px; /* Make the tiles smaller */
+}
+
+.contact-tiles .info-post {
+  background-color: #f9f9f9; /* Light background for the tiles */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.3s ease; /* Animation for hover effect */
+}
+
+.contact-tiles .info-post:hover {
+  transform: translateY(-5px); /* Lift the tile slightly on hover */
+}
+
+.contact-tiles .icon img {
+  width: 50px; /* Adjust size of icons */
+  margin-bottom: 10px;
+}
+
+.contact-tiles a {
+  display: block;
+  font-size: 16px; /* Adjust text size */
+  color: #333; /* Text color */
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.contact-tiles a:hover {
+  text-decoration: underline;
+}
+
+
+
+
+
+
 
 .contact-us .section-heading .line-dec {
   margin: 0 auto;
