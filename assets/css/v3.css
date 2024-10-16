@@ -127,7 +127,7 @@ p {
   font-size: 15px;
   line-height: 30px;
   font-weight: 300;
-  color: #636363;
+  color: #242424;
 }
 
 img {
@@ -211,8 +211,9 @@ body {
 .border-first-button a {
   display: inline-block !important;
   padding: 10px 20px !important;
-  color: #4da6e7 !important;
-  border: 1px solid #4da6e7 !important;
+  color: #ffffff !important;
+  background-color: #4da6e7;
+  border: 1px solid #0264aa !important;
   border-radius: 23px;
   font-weight: 500 !important;
   letter-spacing: 0.3px !important;
@@ -247,7 +248,7 @@ header
 }
 
 .pre-header ul.info li a {
-  color: #636363;
+  color: #242424;
   font-size: 14px;
   transition: all .3s;
 }
@@ -270,7 +271,7 @@ header
 }
 
 .pre-header ul.social-media li a {
-  background-color: #636363;
+  background-color: #242424;
   color: #fff;
   display: inline-block;
   width: 30px;
@@ -1075,7 +1076,7 @@ About Style
 .progress .progress-value span {
   font-size: 18px;
   text-transform: none;
-  color: #636363;
+  color: #242424;
   font-weight: 300;
 }
 
@@ -1433,7 +1434,7 @@ Free Quote
   width: 100%;
   margin-top: 20px;
   margin-left: 30px;
-  color: #636363;
+  color: #242424;
   font-weight: 400;
   font-size: 15px;
   height: 40px;
@@ -1553,7 +1554,7 @@ Portfolio
 
 .portfolio-item .down-content span {
   font-size: 15px;
-  color: #636363;
+  color: #242424;
   transition: all .3s;
 }
 
@@ -1655,7 +1656,7 @@ Blog
 
 .blog-post .down-content span.date {
   font-size: 15px;
-  color: #636363;
+  color: #242424;
   text-align: right;
   float: right;
   margin-top: 4px;
@@ -1728,7 +1729,7 @@ Blog
 
 .post-item .right-content span.date {
   font-size: 15px;
-  color: #636363;
+  color: #242424;
   text-align: right;
   float: right;
   margin-top: 4px;
