@@ -2189,3 +2189,6 @@ responsive
   background-color: #4da6e7;
   margin: 10px auto 0;
 }
+.nacc-overflow {
+overflow: hidden;
+}
