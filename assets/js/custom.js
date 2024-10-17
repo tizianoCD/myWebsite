@@ -46,50 +46,28 @@
   }
 
 
-  // Menu elevator animation
-  // Smooth scroll to section with debug logs
-// Smooth scroll to section with debug logs and corrected hash update
-// Smooth scroll to section with debug logs and corrected hash update
-// Smooth scroll to section with debug logs and corrected hash update
-$('.scroll-to-section a[href^="#"]').on('click', function (e) {
-  e.preventDefault();  // Prevent default anchor behavior
+ // Menu elevator animation (without changing URL hash)
+$('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function(e) {
+  e.preventDefault();  // Prevent default anchor behavior, including URL hash change
 
-  console.log("Anchor link clicked!");  // Log when the link is clicked
-  console.log("Clicked link href:", this.getAttribute('href'));  // Log the href value of the clicked link
-
-  var targetId = this.hash;  // Get the hash (ID) from the clicked link
-  var target = $(targetId);  // Select the target element using the ID
-
-  console.log("Target element:", target);  // Log the target element to check if it's being selected correctly
-
+  var target = $(this.hash);  // Select target element by the hash in the clicked link
+  target = target.length ? target : $('[name=' + this.hash.slice(1) +']');  // Fallback in case element is not found by ID
+  
   if (target.length) {
     var width = $(window).width();
-    console.log("Window width:", width);  // Log the window width
-
+    
+    // Close mobile menu if applicable
     if (width < 991) {
-      console.log("Mobile view detected, hiding menu.");
       $('.menu-trigger').removeClass('active');
       $('.header-area .nav').slideUp(200);
     }
-
-    // Animate scroll to the target section
+    
+    // Smooth scroll to the target section
     $('html, body').animate({
-      scrollTop: target.offset().top
-    }, 700, function () {
-      // After animation, update window location hash correctly
-      console.log("Scroll animation complete, setting window location hash.");
-      
-      // Set hash using the selector string instead of jQuery object
-      window.location.hash = target.selector;  
-      console.log("Updated hash to:", window.location.hash);  // Log the updated hash
-    });
-  } else {
-    console.log("No target found for href:", this.getAttribute('href'));  // Log if no target was found
+      scrollTop: target.offset().top + 1  // Scroll to the target element
+    }, 700);
   }
 });
-
-
-
 
 
   $(document).ready(function () {
