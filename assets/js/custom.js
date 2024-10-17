@@ -48,6 +48,7 @@
 
   // Menu elevator animation
   // Smooth scroll to section with debug logs
+// Smooth scroll to section with debug logs and corrected hash update
 $('.scroll-to-section a[href^="#"]').on('click', function (e) {
   e.preventDefault();  // Prevent default anchor behavior
 
@@ -55,7 +56,7 @@ $('.scroll-to-section a[href^="#"]').on('click', function (e) {
   console.log("Clicked link href:", this.getAttribute('href'));  // Log the href value of the clicked link
 
   var target = $(this.getAttribute('href')); // Use 'getAttribute' to ensure it's a valid string, not an object
-  
+
   console.log("Target element:", target);  // Log the target element to check if it's being selected correctly
 
   if (target.length) {
@@ -72,15 +73,16 @@ $('.scroll-to-section a[href^="#"]').on('click', function (e) {
     $('html, body').animate({
       scrollTop: target.offset().top
     }, 700, function () {
-      // After animation, update window location hash
+      // After animation, update window location hash correctly
       console.log("Scroll animation complete, setting window location hash.");
-      window.location.hash = target.attr('id');  // Set the hash to the section ID, e.g., "#about"
+      window.location.hash = target.attr('id');  // Use `target.attr('id')` to get the ID string of the target element
       console.log("Updated hash to:", window.location.hash);  // Log the updated hash
     });
   } else {
     console.log("No target found for href:", this.getAttribute('href'));  // Log if no target was found
   }
 });
+
 
 
   $(document).ready(function () {
