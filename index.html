@@ -446,36 +446,68 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script>
-  (function () {
-    emailjs.init('KAfA-1eqc2SFs2m3Q');
-    console.log('EmailJS initialized');
-  })();
-</script>
-
-<script>
-  const handleForm = async (e) => {
-    e.preventDefault(); // Prevent default form submission
-
-    const submitButton = e.target.querySelector('button[type="submit"]'); // Find the submit button within the form
-    submitButton.disabled = true; // Disable the submit button to prevent double submission
-
-    try {
-      // Use emailjs to send the form data
-      await emailjs.sendForm('service_cysqmp7', 'template_cgnfvia', document.getElementById('contact-form'));
-      alert('Email sent successfully!');
-    } catch (error) {
-      console.error('Error sending email:', error);
-      alert('Failed to send email.');
-    } finally {
-      submitButton.disabled = false; // Re-enable the submit button after the process is done
-    }
-  };
-
-  // Attach event listener for form submission
-  document.getElementById('contact-form').addEventListener('submit', handleForm, false);
-</script>
-
+  <script>
+    (function () {
+      emailjs.init('KAfA-1eqc2SFs2m3Q');
+      console.log('EmailJS initialized'); // Log to ensure EmailJS is initialized
+    })();
+  </script>
+  
+  <script>
+    const handleForm = async (e) => {
+      console.log('Form submission started'); // Debug log at the beginning
+  
+      e.preventDefault(); // Prevent default form submission behavior
+      console.log('Default form submission prevented');
+  
+      const form = document.getElementById('contact-form');
+      console.log('Form element:', form); // Log form element to ensure it is selected
+  
+      const submitButton = form.querySelector('button[type="submit"]');
+      console.log('Submit button element:', submitButton); // Log the submit button
+  
+      // Check if the submit button exists
+      if (!submitButton) {
+        console.error('Submit button not found in the form!');
+        return;
+      }
+  
+      console.log('Disabling submit button');
+      submitButton.disabled = true; // Disable the submit button to prevent multiple submissions
+  
+      try {
+        console.log('Sending email via EmailJS...');
+        
+        // Sending the email using EmailJS
+        const response = await emailjs.sendForm('service_cysqmp7', 'template_cgnfvia', form);
+        console.log('Email sent successfully:', response); // Log the successful response
+  
+        alert('Email sent successfully!');
+      } catch (error) {
+        console.error('Error occurred while sending email:', error); // Log the error in case of failure
+        alert('Failed to send email. Please try again later.');
+      } finally {
+        console.log('Re-enabling submit button');
+        submitButton.disabled = false; // Re-enable the submit button after the process completes
+      }
+  
+      console.log('Form submission process completed'); // Final debug log
+    };
+  
+    // Attach the handleForm function to the form's submit event
+    document.addEventListener('DOMContentLoaded', function() {
+      const formElement = document.getElementById('contact-form');
+      console.log('Form element found:', formElement);
+  
+      if (formElement) {
+        formElement.addEventListener('submit', handleForm);
+        console.log('Event listener attached to form submit event');
+      } else {
+        console.error('Form element not found!');
+      }
+    });
+  </script>
+  
   
 
 
