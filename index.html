@@ -446,23 +446,31 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script>
-      (function () {
-        emailjs.init('KAfA-1eqc2SFs2m3Q');
-        console.log('inited');
-      })();
-    </script>
-    <script>
-      const handleForm = async (e) => {
-        try {
-          await emailjs.sendForm('service_cysqmp7', 'template_cgnfvia', document.getElementById('contact-form'));
-          alert('email sent!');
-        } catch (error) {
-          console.error(error);
-          alert('Failed to send email');
-        }
-      };
-    </script>
+<script>
+  (function () {
+    emailjs.init('KAfA-1eqc2SFs2m3Q');
+    console.log('EmailJS initialized');
+  })();
+</script>
+
+<script>
+  const handleForm = async (e) => {
+    e.preventDefault(); // Prevent the form from reloading the page
+
+    try {
+      // Send the form data via emailjs
+      await emailjs.sendForm('service_cysqmp7', 'template_cgnfvia', document.getElementById('contact-form'));
+      alert('Email sent successfully!');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Failed to send email. Please try again later.');
+    }
+  };
+
+  // Add event listener to the form
+  document.getElementById('contact-form').addEventListener('submit', handleForm);
+</script>
+
 
 </body>
 </html>

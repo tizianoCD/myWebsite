@@ -155,8 +155,4 @@ $('.scroll-to-section a[href]').on('click', function(e) {
       }
     });
   }
-
-
-
-
 })(window.jQuery);
