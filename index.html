@@ -387,7 +387,7 @@
                         <label for="message">Message</label>
                         <textarea id="message" name="message" required></textarea>
                       
-                        <input type="submit" value="Send" />
+                        <button type="submit" id="submit-button">Send</button>
                       </form>                      
                     </div>                    
                     
@@ -446,35 +446,36 @@
 
 
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script>
-    (function () {
-      emailjs.init('KAfA-1eqc2SFs2m3Q');
-      console.log('EmailJS initialized');
-    })();
-  </script>
-  
-  <script>
-    const handleForm = async (e) => {
-      e.preventDefault(); // Ensure the form's default submit action is prevented
-  
-      const submitButton = document.querySelector('#submit-button');
-      submitButton.disabled = true; // Disable the submit button to prevent double submissions
-  
-      try {
-        // Use emailjs to send the form data
-        await emailjs.sendForm('service_cysqmp7', 'template_cgnfvia', document.getElementById('contact-form'));
-        alert('Email sent successfully!');
-      } catch (error) {
-        console.error('Error sending email:', error);
-        alert('Failed to send email.');
-      } finally {
-        submitButton.disabled = false; // Re-enable the submit button after the process is done
-      }
-    };
-  
-    // Attach event listener for form submission
-    document.getElementById('contact-form').addEventListener('submit', handleForm, false);
-  </script>
+<script>
+  (function () {
+    emailjs.init('KAfA-1eqc2SFs2m3Q');
+    console.log('EmailJS initialized');
+  })();
+</script>
+
+<script>
+  const handleForm = async (e) => {
+    e.preventDefault(); // Prevent default form submission
+
+    const submitButton = e.target.querySelector('button[type="submit"]'); // Find the submit button within the form
+    submitButton.disabled = true; // Disable the submit button to prevent double submission
+
+    try {
+      // Use emailjs to send the form data
+      await emailjs.sendForm('service_cysqmp7', 'template_cgnfvia', document.getElementById('contact-form'));
+      alert('Email sent successfully!');
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Failed to send email.');
+    } finally {
+      submitButton.disabled = false; // Re-enable the submit button after the process is done
+    }
+  };
+
+  // Attach event listener for form submission
+  document.getElementById('contact-form').addEventListener('submit', handleForm, false);
+</script>
+
   
 
 
