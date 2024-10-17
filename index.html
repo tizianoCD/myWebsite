@@ -388,6 +388,7 @@
                         <textarea id="message" name="message" required></textarea>
                       
                         <input type="submit" value="Send" />
+                        <button type="submit" id="submit-button">Send</button>
                       </form>                      
                     </div>                    
                     
@@ -455,7 +456,10 @@
 
 <script>
   const handleForm = async (e) => {
-    e.preventDefault(); // Prevent the form from reloading the page
+    e.preventDefault(); // Prevent the default form submission behavior
+
+    const submitButton = document.querySelector('#submit-button'); // Assuming your submit button has this ID
+    submitButton.disabled = true; // Disable the submit button to prevent double submission
 
     try {
       // Send the form data via emailjs
@@ -464,6 +468,8 @@
     } catch (error) {
       console.error('Error sending email:', error);
       alert('Failed to send email. Please try again later.');
+    } finally {
+      submitButton.disabled = false; // Re-enable the button after the process is complete
     }
   };
 
