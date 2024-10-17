@@ -48,13 +48,12 @@
 
  // Menu elevator animation (without changing URL hash)
 // Menu elevator animation (distinguishing between hash and target)
-$('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function(e) {
-  e.preventDefault();  // Prevent default anchor behavior, including URL hash change
+// Menu elevator animation (handling href without #)
+$('.scroll-to-section a[href]').on('click', function(e) {
+  e.preventDefault();  // Prevent default anchor behavior
 
-  var hash = this.hash;  // Store the hash string (e.g., "#about")
-  var target = $(hash);  // Use jQuery to find the target element with this hash
-  
-  target = target.length ? target : $('[name=' + hash.slice(1) + ']');  // Fallback for name attribute
+  var ref = $(this).attr('href');  // Get the href attribute (e.g., "about")
+  var target = $('#' + ref);  // Find the target element using the href as ID (e.g., #about)
   
   if (target.length) {
     var width = $(window).width();
@@ -64,13 +63,13 @@ $('.scroll-to-section a[href*=\\#]:not([href=\\#])').on('click', function(e) {
       $('.menu-trigger').removeClass('active');
       $('.header-area .nav').slideUp(200);
     }
-    
+
     // Smooth scroll to the target section
     $('html, body').animate({
       scrollTop: target.offset().top + 1  // Scroll to the target element
     }, 700, function() {
-      // Once scrolling is done, update the window location hash
-      window.location.hash = hash;  // Set the URL hash to the original string
+      // You can optionally update the URL here, but it won't include the #
+      // window.location.hash = ref;
     });
   }
 });
