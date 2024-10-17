@@ -50,6 +50,7 @@
   // Smooth scroll to section with debug logs
 // Smooth scroll to section with debug logs and corrected hash update
 // Smooth scroll to section with debug logs and corrected hash update
+// Smooth scroll to section with debug logs and corrected hash update
 $('.scroll-to-section a[href^="#"]').on('click', function (e) {
   e.preventDefault();  // Prevent default anchor behavior
 
@@ -77,13 +78,16 @@ $('.scroll-to-section a[href^="#"]').on('click', function (e) {
     }, 700, function () {
       // After animation, update window location hash correctly
       console.log("Scroll animation complete, setting window location hash.");
-      window.location.hash = targetId;  // Use the original hash string, not the jQuery object
+      
+      // Set hash using the selector string instead of jQuery object
+      window.location.hash = target.selector;  
       console.log("Updated hash to:", window.location.hash);  // Log the updated hash
     });
   } else {
     console.log("No target found for href:", this.getAttribute('href'));  // Log if no target was found
   }
 });
+
 
 
 
