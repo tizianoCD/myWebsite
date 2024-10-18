@@ -2245,15 +2245,13 @@ overflow: hidden;
 
 
 
-/* Center the form and the text */
-#contact-form, #loading-text {
+#loading-text {
   max-width: 400px;
   margin: 0 auto; /* Center the element */
   display: block;
   text-align: center; /* Center the text */
 }
 
-/* Loading or success message styling */
 #loading-text {
   font-size: 18px; /* Make the text larger */
   font-weight: bold; /* Make the text bold */
@@ -2273,14 +2271,6 @@ overflow: hidden;
   }
 }
 
-/* Style the form for better look */
-#contact-form {
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #f9f9f9;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 /* Submit button styling */
 button[type="submit"] {
