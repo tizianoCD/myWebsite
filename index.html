@@ -388,7 +388,11 @@
                         <textarea id="message" name="message" required></textarea>
                       
                         <button type="submit" id="submit-button">Send</button>
-                      </form>                      
+                      </form>
+                      
+                      <!-- Placeholder for the loading or success message -->
+                      <p id="loading-text"></p>
+                                           
                     </div>                    
                     
                   </div>
@@ -449,61 +453,63 @@
 <script>
   (function () {
     emailjs.init('KAfA-1eqc2SFs2m3Q');
-    console.log('EmailJS initialized'); // Log to ensure EmailJS is initialized
   })();
 </script>
 
 <script>
   let isSubmitting = false; // Prevent multiple form submissions flag
 
-  const handleForm = async (e) => {
+const handleForm = async (e) => {
+  e.preventDefault(); // Prevent default form submission behavior
 
-    e.preventDefault(); // Prevent default form submission behavior
+  // If already submitting, prevent multiple submissions
+  if (isSubmitting) {
+    return;
+  }
+  
+  isSubmitting = true; // Set the flag to prevent duplicate submissions
 
-    // If already submitting, prevent multiple submissions
-    if (isSubmitting) {
-      return;
-    }
-    
-    isSubmitting = true; // Set the flag to prevent duplicate submissions
+  const form = document.getElementById('contact-form');
+  const submitButton = form.querySelector('button[type="submit"]');
+  const loadingText = document.getElementById('loading-text'); // Placeholder for the loading text
 
-    const form = document.getElementById('contact-form');
+  if (!submitButton) {
+    console.error('Submit button not found in the form!');
+    isSubmitting = false;
+    return;
+  }
 
-    const submitButton = form.querySelector('button[type="submit"]');
+  submitButton.disabled = true; // Disable the submit button to prevent multiple submissions
+  loadingText.innerText = 'Loading...'; // Show the loading message
 
-    if (!submitButton) {
-      console.error('Submit button not found in the form!');
-      isSubmitting = false;
-      return;
-    }
+  try {
+    // Send email using EmailJS
+    await emailjs.sendForm('service_cysqmp7', 'template_cgnfvia', form);
 
-    submitButton.disabled = true; // Disable the submit button to prevent multiple submissions
+    // Hide the form and show success message
+    form.style.display = 'none'; // Hide the form
+    loadingText.innerText = 'Email sent successfully!'; // Show success message
+  } catch (error) {
+    console.error('Error occurred while sending email:', error); // Log the error in case of failure
+    loadingText.innerText = 'Failed to send email. Please try again later.'; // Show error message
+  } finally {
+    submitButton.disabled = false; // Re-enable the submit button after the process completes
+    isSubmitting = false; // Reset the flag to allow further submissions
+  }
+};
 
-    try {
-      
-      const response = await emailjs.sendForm('service_cysqmp7', 'template_cgnfvia', form);
+// Ensure event listener is attached only once
+document.addEventListener('DOMContentLoaded', function() {
+  const formElement = document.getElementById('contact-form');
 
-      alert('Email sent successfully!');
-    } catch (error) {
-      console.error('Error occurred while sending email:', error); // Log the error in case of failure
-      alert('Failed to send email. Please try again later.');
-    } finally {
-      submitButton.disabled = false; // Re-enable the submit button after the process completes
-      isSubmitting = false; // Reset the flag to allow further submissions
-    }
-  };
+  if (formElement) {
+    formElement.removeEventListener('submit', handleForm); // Remove any existing listener
+    formElement.addEventListener('submit', handleForm); // Attach the handleForm to the submit event
+  } else {
+    console.error('Form element not found!');
+  }
+});
 
-  // Ensure event listener is attached only once
-  document.addEventListener('DOMContentLoaded', function() {
-    const formElement = document.getElementById('contact-form');
-
-    if (formElement) {
-      formElement.removeEventListener('submit', handleForm); // Remove any existing listener
-      formElement.addEventListener('submit', handleForm); // Attach the handleForm to the submit event
-    } else {
-      console.error('Form element not found!');
-    }
-  });
 </script>
 
   
